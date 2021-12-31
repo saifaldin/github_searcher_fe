@@ -1,0 +1,25 @@
+.header {
+  width: 50%;
+  max-width: 360px;
+  min-width: 360px;
+}
+.banner {
+  display: flex;
+  align-items: center;
+}
+.banner-icon {
+  width: 32px;
+  height: 32px;
+  margin: 12px 12px 12px 0px;
+}
+.banner-title {
+  margin: 0;
+  font-size: 18px;
+  color: rgb(0,0,0);
+}
+.banner-subtitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.5);
+}

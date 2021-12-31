@@ -1,0 +1,33 @@
+.user{
+  width: 25%;
+  height: 128px;
+  margin: 24px 12px 24px 0;
+  position: relative;
+  background-color: #a092921a;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.user_image {
+  position: absolute;
+  border: 2px solid black;
+  width: 52px;
+  height: 52px;
+  left: 0;
+  top: 0;
+}
+
+.user_title {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .user {
+    width: 45%;
+  }
+}

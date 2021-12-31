@@ -1,0 +1,13 @@
+.results_section {
+  min-width: 600px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .results_section {
+    min-width: 400px;
+  }
+}
