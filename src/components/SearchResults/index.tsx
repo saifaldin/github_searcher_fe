@@ -21,7 +21,7 @@ const renderRepoResult = (result: IRepoResult, i: number) => {
     repoUrl={repoUrl}
     stars={stars}
   />
-}
+};
 
 const renderUserResult = (result: IUserResult, i: number) => {
   const { name, avatar, profileUrl, type } = result;
@@ -32,7 +32,7 @@ const renderUserResult = (result: IUserResult, i: number) => {
     profileUrl={profileUrl}
     avatar={avatar}
   />
-}
+};
 
 const SearchResults = (props: ISearchResultsProps) => {
   const { type, text } = props;
@@ -46,19 +46,19 @@ const SearchResults = (props: ISearchResultsProps) => {
     }
     if (text && text.length >= 3) {
       if (cachedResults) {
-        setSearchResults(cachedResults.map((result: any) => ({ ...result, type: type })))
+        setSearchResults(cachedResults.map((result: any) => ({ ...result, type: type })));
       }
       backendClient.search(type, text)
         .then(({ data }) => {
           const results = data.results;
-          setSearchResults(results.map((result: any) => ({ ...result, type: type })))
+          setSearchResults(results.map((result: any) => ({ ...result, type: type })));
           dispatch({ type: 'CACHE', payload: { type, results, text } });
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }, [type, text])
+  }, [type, text]);
 
   return (
     <section className='results_section'>

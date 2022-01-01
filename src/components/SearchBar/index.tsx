@@ -11,7 +11,7 @@ function SearchBar(props: { setSearchParams: Function }) {
 
   useEffect(() => {
     setSearchParams({ text, type });
-  }, [text])
+  }, [text]);
 
   return (
     <div className='search_bar'>
