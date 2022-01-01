@@ -23,3 +23,11 @@
   font-weight: 600;
   color: rgba(0,0,0,0.5);
 }
+.remaining {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+.remaining_subtitle {
+  margin-top: 0;
+  font-size: 12px;
+}

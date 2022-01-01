@@ -1,6 +1,7 @@
 import { ResultTypes } from '../../enums/ResultTypes';
 
 export interface ISearchResultsProps {
-  type: ResultTypes,
+  setRemainingRequests: Function,
   text: string,
+  type: ResultTypes,
 };

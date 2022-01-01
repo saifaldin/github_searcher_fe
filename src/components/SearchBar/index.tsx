@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { ISearchBarProps } from './interfaces/ISearchBarProps';
 import { ResultTypes } from '../enums/ResultTypes';
 import DropdownList from './components/DropdownList';
 import SearchInput from './components/SearchInput';
 import './styles/index.css';
 
-function SearchBar(props: { setSearchParams: Function }) {
+function SearchBar(props: ISearchBarProps) {
   const { setSearchParams } = props;
   const [type, setType] = useState(ResultTypes.USERS);
   const [text, setText] = useState();

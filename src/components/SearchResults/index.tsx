@@ -35,7 +35,7 @@ const renderUserResult = (result: IUserResult, i: number) => {
 };
 
 const SearchResults = (props: ISearchResultsProps) => {
-  const { type, text } = props;
+  const { type, text, setRemainingRequests } = props;
   const dispatch = useAppDispatch();
   const [searchResults, setSearchResults] = useState([]);
   const cachedResults = useAppSelector(state => state[type][text]);
@@ -47,16 +47,19 @@ const SearchResults = (props: ISearchResultsProps) => {
     if (text && text.length >= 3) {
       if (cachedResults) {
         setSearchResults(cachedResults.map((result: any) => ({ ...result, type: type })));
+      } else {
+        backendClient.search(type, text)
+          .then(({ data }) => {
+            console.log(data);
+            setRemainingRequests(data.rateLimit.remaining);
+            const results = data.results;
+            setSearchResults(results.map((result: any) => ({ ...result, type: type })));
+            dispatch({ type: 'CACHE', payload: { type, results, text } });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
-      backendClient.search(type, text)
-        .then(({ data }) => {
-          const results = data.results;
-          setSearchResults(results.map((result: any) => ({ ...result, type: type })));
-          dispatch({ type: 'CACHE', payload: { type, results, text } });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
     }
   }, [type, text]);
 

@@ -6,11 +6,12 @@ import './styles/App.css';
 
 const App = () => {
   const [searchParams, setSearchParams] = useState({ text: '', type: ResultTypes.USERS });
+  const [remainingRequests, setRemainingRequests] = useState(10);
 
   return (
     <section className='github_searcher'>
-      <Header setSearchParams={setSearchParams} />
-      <SearchResults text={searchParams.text} type={searchParams.type} />
+      <Header setSearchParams={setSearchParams} remainingRequests={remainingRequests} setRemainingRequests={setRemainingRequests} />
+      <SearchResults text={searchParams.text} type={searchParams.type} setRemainingRequests={setRemainingRequests} />
     </section>
   );
 }
