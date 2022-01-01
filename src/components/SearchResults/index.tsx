@@ -50,7 +50,6 @@ const SearchResults = (props: ISearchResultsProps) => {
       } else {
         backendClient.search(type, text)
           .then(({ data }) => {
-            console.log(data);
             setRemainingRequests(data.rateLimit.remaining);
             const results = data.results;
             setSearchResults(results.map((result: any) => ({ ...result, type: type })));
